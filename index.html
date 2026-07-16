@@ -55,14 +55,21 @@
       font-weight: 700;
       font-size: clamp(1.8rem, 5vw, 2.8rem);
       letter-spacing: -.02em;
-      margin-top: 28px;
+      margin-top: 6px;
     }
     p {
       margin-top: 14px;
       font-size: clamp(1.05rem, 2.5vw, 1.25rem);
       color: rgba(61, 61, 61, .66);
     }
-    .leaf { color: #4A7C59; }
+    .soon {
+      display: block;
+      margin-top: 26px;
+      font-family: 'Rubik', 'Heebo', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #4A7C59;
+    }
 
     .card > * { opacity: 0; transform: translateY(20px); animation: in .9s cubic-bezier(.22,.61,.36,1) forwards; }
     .card > *:nth-child(2) { animation-delay: .15s; }
@@ -80,7 +87,7 @@
   <main class="card">
     <img src="assets/logo.png" alt="GrowDigital" />
     <h1>עושים סדר בדיגיטל.</h1>
-    <p>משהו חדש צומח כאן <span class="leaf">🌿</span> בקרוב</p>
+    <p>משהו חדש צומח כאן 🌿<span class="soon">בקרוב</span></p>
   </main>
 </body>
 </html>
