@@ -29,15 +29,14 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root { --logo-w: min(320px, 60vw); }
+
     body {
       min-height: 100svh;
-      display: grid;
-      place-items: center;
       text-align: center;
       background: #FAF9F6;
       color: #3D3D3D;
       font-family: 'Heebo', system-ui, sans-serif;
-      padding: 24px;
       overflow: hidden;
     }
 
@@ -48,8 +47,16 @@
     }
     .rings circle { fill: none; stroke: #4A7C59; stroke-width: 1; opacity: .12; }
 
-    .card { position: relative; }
-    .card img { width: min(320px, 60vw); margin-inline: auto; display: block; }
+    /* מרכז הלוגו = מרכז העמוד; המלל זורם מתחתיו */
+    .card {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, calc(var(--logo-w) / -2));
+      width: max-content;
+      max-width: 92vw;
+    }
+    .card img { width: var(--logo-w); margin-inline: auto; display: block; }
     h1 {
       font-family: 'Rubik', 'Heebo', sans-serif;
       font-weight: 700;
