@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>GrowDigital — בקרוב</title>
+
+  <style>
+    @font-face {
+      font-family: 'Rubik';
+      src: url('assets/fonts/rubik-hebrew.woff2') format('woff2');
+      font-weight: 300 900;
+      font-display: swap;
+      unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+    }
+    @font-face {
+      font-family: 'Rubik';
+      src: url('assets/fonts/rubik-latin.woff2') format('woff2');
+      font-weight: 300 900;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Heebo';
+      src: url('assets/Heebo.ttf') format('truetype');
+      font-weight: 300 800;
+      font-display: swap;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root { --logo-w: min(320px, 60vw); }
+
+    body {
+      min-height: 100svh;
+      text-align: center;
+      background: #FAF9F6;
+      color: #3D3D3D;
+      font-family: 'Heebo', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    .rings {
+      position: fixed; inset: 0; margin: auto;
+      width: min(150vmin, 900px); height: min(150vmin, 900px);
+      pointer-events: none; opacity: .5;
+    }
+    .rings circle { fill: none; stroke: #4A7C59; stroke-width: 1; opacity: .12; }
+
+    /* מרכז הלוגו = מרכז העמוד; המלל זורם מתחתיו */
+    .card {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, calc(var(--logo-w) / -2));
+      width: max-content;
+      max-width: 92vw;
+    }
+    .card img { width: var(--logo-w); margin-inline: auto; display: block; }
+    h1 {
+      font-family: 'Rubik', 'Heebo', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      letter-spacing: -.02em;
+      margin-top: 6px;
+    }
+    p {
+      margin-top: 14px;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: rgba(61, 61, 61, .66);
+    }
+    .soon {
+      display: block;
+      margin-top: 26px;
+      font-family: 'Rubik', 'Heebo', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #4A7C59;
+    }
+
+    .card > * { opacity: 0; transform: translateY(20px); animation: in .9s cubic-bezier(.22,.61,.36,1) forwards; }
+    .card > *:nth-child(2) { animation-delay: .15s; }
+    .card > *:nth-child(3) { animation-delay: .3s; }
+    @keyframes in { to { opacity: 1; transform: none; } }
+
+    /* לוגו עם פעימה — מתחיל אחרי אנימציית הכניסה */
+    .card img {
+      animation: in .9s cubic-bezier(.22,.61,.36,1) forwards,
+                 pulse 4.5s ease-in-out 1.4s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    /* עלה מרחף */
+    .leaf {
+      display: inline-block;
+      animation: float 3.5s ease-in-out 1.4s infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(10deg); }
+    }
+
+    /* "בקרוב" נושם */
+    .soon { animation: breathe 3s ease-in-out 1.4s infinite; }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.06); opacity: .75; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card > *, .card img, .leaf, .soon { opacity: 1; transform: none; animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <svg class="rings" viewBox="0 0 900 900" aria-hidden="true">
+    <circle cx="450" cy="450" r="90"/><circle cx="450" cy="450" r="160"/>
+    <circle cx="450" cy="450" r="230"/><circle cx="450" cy="450" r="300"/>
+    <circle cx="450" cy="450" r="370"/><circle cx="450" cy="450" r="440"/>
+  </svg>
+  <main class="card">
+    <img src="assets/logo.png" alt="GrowDigital" />
+    <h1>עושים סדר בדיגיטל.</h1>
+    <p>משהו חדש צומח כאן <span class="leaf">🌿</span><span class="soon">בקרוב</span></p>
+  </main>
+</body>
+</html>
